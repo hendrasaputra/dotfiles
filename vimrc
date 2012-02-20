@@ -1,4 +1,4 @@
-set nocompatible                " choose no compatibility with legacy vi
+set nocompatible
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -22,3 +22,11 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Add pathogen from autoload
+call pathogen#infect()
+call pathogen#helptags()
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
